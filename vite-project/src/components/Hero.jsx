@@ -35,7 +35,6 @@ useEffect(() => {
     const drops = gsap.utils.toArray('.raindrop');
     const animations = [];
 
-    // Start rain on scroll
     ScrollTrigger.create({
       trigger: '.scroll-wrapper',
       start: 'top+=10 top',
@@ -51,7 +50,7 @@ useEffect(() => {
             opacity: 0.5,
           });
 const anim = gsap.to(drop, {
-  y: window.innerHeight * 2, // instead of +40
+  y: window.innerHeight * 2, 
   duration,
   repeat: -1,
   delay,
@@ -64,7 +63,6 @@ const anim = gsap.to(drop, {
       },
     });
 
-    // Stop rain when section2 ends
     ScrollTrigger.create({
       trigger: '.section2',
       start: 'top top',
@@ -73,7 +71,6 @@ const anim = gsap.to(drop, {
         animations.forEach((a) => a.kill());
       },
     });
-// Stop rain when section3 appears
 ScrollTrigger.create({
   trigger: '.section3',
   start: 'top center',
@@ -82,20 +79,19 @@ ScrollTrigger.create({
   },
 });
 
-    // Lightning flash when section2 appears
  ScrollTrigger.create({
   trigger: '.section2',
   start: 'top center',
   once: true,
   onEnter: () => {
     const tl = gsap.timeline();
-    tl.to('.lightning-flash', { opacity: 1, duration: 0.1 })           // Flash 1
-      .to('.lightning-flash', { opacity: 0, duration: 0.35 })          // Fade out
+    tl.to('.lightning-flash', { opacity: 1, duration: 0.1 })          
+      .to('.lightning-flash', { opacity: 0, duration: 0.35 })         
 
-      .to('.lightning-flash', { opacity: 1, duration: 0.05 }, "+=0.8") // Flash 2 (after delay)
+      .to('.lightning-flash', { opacity: 1, duration: 0.05 }, "+=0.8") 
       .to('.lightning-flash', { opacity: 0, duration: 0.35 })
 
-      .to('.lightning-flash', { opacity: 1, duration: 0.08 }, "+=0.6") // Flash 3 (final, a bit faster)
+      .to('.lightning-flash', { opacity: 1, duration: 0.08 }, "+=0.6") 
       .to('.lightning-flash', { opacity: 0, duration: 0.4 });
   },
 });
@@ -105,17 +101,14 @@ ScrollTrigger.create({
   return (
     <div className="scroll-wrapper">
         <div className="rain-zone">
-      {/* Lightning Flash Overlay */}
       <div className="lightning-flash"></div>
 
-      {/* Rain over entire page */}
       <div className="rain-container">
         {Array.from({ length: 50 }).map((_, i) => (
           <div className="raindrop" key={i}></div>
         ))}
       </div>
 
-      {/* Hero Section */}
 
 <div className="hero" style={{
         backgroundImage: `url(${storm})`,
@@ -136,12 +129,7 @@ ScrollTrigger.create({
           <p className="hero-quote">
             "You are enough. You are growing. And you're allowed to take your time."
           </p>
-            {/* <p className="hero-quote1">
-You are a work in progress, and that’s a beautiful thing.
-Healing doesn’t follow a timeline — it flows in quiet, steady waves.
-Take your time; growth is happening even when it’s unseen.
-
-          </p> */}
+          
           <button className="hero-btn">Begin Your Journey</button>
         </div>
         
@@ -191,13 +179,11 @@ Take your time; growth is happening even when it’s unseen.
  <div className="plant">
   <div className="stem"></div>
 
-  {/* Leaves */}
   <div className="leaf left-leaf"></div>
   <div className="leaf right-leaf"></div>
   <div className="leaf left-leaf-2"></div>
   <div className="leaf right-leaf-2"></div>
 
-  {/* Flower */}
 <div class="flower-container">
   <div class="flower">
     <div class="center"></div>
@@ -214,17 +200,14 @@ Take your time; growth is happening even when it’s unseen.
 
 
 </div>
-{/* 🌼 Second Flower */}
 <div className="plant plant2">
   <div className="stem"></div>
 
-  {/* Leaves */}
   <div className="leaf left-leaf leaf2"></div>
   <div className="leaf right-leaf leaf2"></div>
   <div className="leaf left-leaf-2 leaf2"></div>
   <div className="leaf right-leaf-2 leaf2"></div>
 
-  {/* Flower */}
   <div className="flower-container flower2">
     <div className="flower">
       <div className="center"></div>
@@ -238,17 +221,14 @@ Take your time; growth is happening even when it’s unseen.
   </div>
 </div>
 
-{/* 🌺 Third Flower */}
 <div className="plant plant3">
   <div className="stem"></div>
 
-  {/* Leaves */}
   <div className="leaf left-leaf leaf3"></div>
   <div className="leaf right-leaf leaf3"></div>
   <div className="leaf left-leaf-2 leaf3"></div>
   <div className="leaf right-leaf-2 leaf3"></div>
 
-  {/* Flower */}
   <div className="flower-container flower3">
     <div className="flower">
       <div className="center"></div>
