@@ -125,7 +125,7 @@ ScrollTrigger.create({
 <div className="cloud cloud5"></div>
 
         <div className="hero-text">
-          <h1>Healing begins with small steps.</h1>
+          <h1>Healing begins with small and continuous steps.</h1>
           <p className="hero-quote">
             "You are enough. You are growing. And you're allowed to take your time."
           </p>
