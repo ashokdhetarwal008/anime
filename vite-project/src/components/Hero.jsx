@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 import './Hero.css';
 import Navbar from './Navbar';
+import Modal from './Modal';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import storm from '/images/cloud.png';
@@ -10,6 +11,8 @@ const Hero = () => {
     const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+  const [count, setCount] = useState(0);
 useEffect(() => {
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -130,7 +133,17 @@ ScrollTrigger.create({
             "You are enough. You are growing. And you're allowed to take your time."
           </p>
           
-          <button className="hero-btn">Begin Your Journey</button>
+          <button className="hero-btn" onClick={() =>{ setShowModal(true) ;
+            setCount(count + 1);
+          } }
+            >
+            Begin Your Journey
+          </button>
+          <Modal show={showModal} onClose={() => setShowModal(false)}>
+            <h2>Journey Started!</h2>
+            <p>Your healing journey has begun. </p>
+            <p>You clicked {count}</p>
+          </Modal>
         </div>
         
 
